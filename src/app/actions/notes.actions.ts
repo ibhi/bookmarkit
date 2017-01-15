@@ -1,5 +1,5 @@
 import { v4 } from 'node-uuid';
-import { ADD_NOTES, EDIT_NOTES, REMOVE_NOTES, MOVE_TO_NOTEBOOK } from './../constants/notes.constants';
+import { ADD_NOTES, UPDATE_NOTES, REMOVE_NOTES, MOVE_TO_NOTEBOOK } from './../constants/notes.constants';
 
 export const addNotes = ({ name, description, link, notebookId  }) => {
   const id = v4();
@@ -15,9 +15,9 @@ export const addNotes = ({ name, description, link, notebookId  }) => {
   });
 };
 
-export const editNotes = ({ id, name, description, link, notebookId }) => (
+export const updateNotes = ({ id, name, description, link, notebookId }) => (
   {
-    type: EDIT_NOTES,
+    type: UPDATE_NOTES,
     payload: {
       id,
       name,

@@ -1,5 +1,5 @@
 export const ADD_NOTEBOOK = 'ADD_NOTEBOOK';
 
-export const EDIT_NOTEBOOK = 'EDIT_NOTEBOOK';
+export const UPDATE_NOTEBOOK = 'UPDATE_NOTEBOOK';
 
 export const REMOVE_NOTEBOOK = 'REMOVE_NOTEBOOK';
