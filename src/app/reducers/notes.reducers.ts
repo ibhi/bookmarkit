@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { ADD_NOTES, UPDATE_NOTES, REMOVE_NOTES, MOVE_TO_NOTEBOOK } from './../constants/notes.constants';
-import omit from 'lodash-es/omit';
+import { omit } from 'lodash';
 
 const addNotesEntry = (state, { id, name, description, link, notebookId }) => (
   Object.assign(

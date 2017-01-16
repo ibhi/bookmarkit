@@ -1,6 +1,6 @@
 import { v4 } from 'node-uuid';
 import { combineReducers } from 'redux';
-import omit from 'lodash-es/omit';
+import { omit } from 'lodash';
 import { ADD_NOTEBOOK, UPDATE_NOTEBOOK, REMOVE_NOTEBOOK } from './../constants/notebooks.constants';
 import { addNotebook, updateNotebook, removeNotebook } from './../actions/notebooks.actions';
 
