@@ -1,36 +1,15 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux-immutable';
+import { List, Map } from 'immutable';
 import { ADD_NOTES, UPDATE_NOTES, REMOVE_NOTES, MOVE_TO_NOTEBOOK } from './../constants/notes.constants';
 import { omit } from 'lodash';
 
-const addNotesEntry = (state, { id, name, description, link, notebookId }) => (
-  Object.assign(
-    {},
-    state,
-    {
-      [id]: {
-        id,
-        name,
-        description,
-        link,
-        notebookId
-      }
-    }
-  )
-);
+const addNotesEntry = (state, note) => state.set(note.id, Map(note));
 
-const removeNotesEntry = (state, id) => omit(state, id);
+const removeNotesEntry = (state, id) => state.delete(id);
 
-const moveToNotebookEntry = (state, { id , notebookId}) => (
-  Object.assign(
-    {},
-    state,
-    { 
-      [id]: Object.assign({}, state[id], { notebookId })
-    }
-  )
-);
+const moveToNotebookEntry = (state, { id , notebookId}) => state.setIn([id, 'notebookId'], notebookId);
 
-const notesById = (state = {}, action) => {
+const notesById = (state = Map({}), action) => {
   switch (action.type) {
     case ADD_NOTES:
     case UPDATE_NOTES:
@@ -44,10 +23,10 @@ const notesById = (state = {}, action) => {
   }
 }
 
-const allNotes = (state = [], action) => {
+const allNotes = (state = List([]), action) => {
   switch (action.type) {
     case ADD_NOTES:
-      return state.concat(action.payload.id);
+      return state.push(action.payload.id);
     case REMOVE_NOTES:
       return state.filter(id => id !== action.payload);
     case UPDATE_NOTES:
