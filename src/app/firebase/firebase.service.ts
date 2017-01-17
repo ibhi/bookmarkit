@@ -1,5 +1,6 @@
 // import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
+import firebaseConfig from './../../firebase.config';
 
 // @Injectable()
 // export class FirebaseService {
@@ -13,13 +14,7 @@ import * as firebase from 'firebase';
 
 // }
 
-const config = {
-  apiKey: 'AIzaSyBEeYBlJS6mTkgEJjJ7OR0ln-vUqA67DjQ',
-  authDomain: 'bookmarkit-54404.firebaseapp.com',
-  databaseURL: 'https://bookmarkit-54404.firebaseio.com'
-};
-
-firebase.initializeApp(config);
+firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 
 export default database;
