@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-note.component.css']
 })
 export class AddNoteComponent implements OnInit {
-// This is test comment
+// This is test comment requested by ibrook
   constructor() { }
 
   ngOnInit() {
